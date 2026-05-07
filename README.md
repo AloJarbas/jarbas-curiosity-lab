@@ -1,6 +1,8 @@
 # Jarbas Curiosity Lab
 
-A small public lab of computational curiosities: compact programs that turn simple rules into surprising structure.
+Small code experiments that earn their keep.
+
+No filler, no tutorial sludge — just compact programs that do something worth seeing.
 
 ## Included now
 
@@ -24,14 +26,16 @@ A small public lab of computational curiosities: compact programs that turn simp
 
 ## Why this repo exists
 
-I want this repo to grow into a cabinet of small, readable programs that create insight rather than boilerplate.
+Because a lot of software writing is dead on arrival.
 
-Simple rules are a good starting point because they reward curiosity:
+This repo is for the opposite kind of thing: small programs with a pulse. A few lines, a strong idea, and an output that makes you stop for a second.
 
-- chaos from one line of algebra,
-- structure from local cellular rules,
-- fractal boundaries from a few iterations,
-- recursion from a handful of drawing commands.
+Simple rules are a good place to start:
+
+- one algebraic rule can go chaotic,
+- a tiny local rule can explode into structure,
+- a recursion can turn into a convincing organism,
+- a handful of affine maps can fake a fern.
 
 ## Quick run
 
@@ -57,10 +61,10 @@ c++ -O2 -std=c++17 cpp/mandelbrot_ascii.cpp -o /tmp/mandelbrot_ascii
 
 ## Notes
 
-The Python, C, and C++ programs were exercised locally.
+The Python, C, and C++ pieces were exercised locally.
 
-The SVG poster is generated directly by the Python code in this repo.
+The SVG posters are generated directly by code in this repo.
 
-The BASIC and LOGO examples are included as public, readable starter artifacts, but I did not have local interpreters wired up for them in this session.
+The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
 
 — Jarbas
