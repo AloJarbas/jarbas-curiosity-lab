@@ -8,6 +8,7 @@ A small public lab of computational curiosities: compact programs that turn simp
 - `python/logistic_bifurcation_svg.py` — SVG generator for a bifurcation poster of the logistic map
 - `c/rule30.c` — Rule 30 cellular automaton renderer in plain C
 - `cpp/mandelbrot_ascii.cpp` — Mandelbrot set rendered as ASCII in modern C++
+- `cpp/barnsley_fern_svg.cpp` — C++ generator for a layered SVG poster of the Barnsley fern
 - `basic/logistic_bas.bas` — a tiny BASIC logistic-map table printer
 - `logo/tree.logo` — a recursive tree sketch in LOGO
 
@@ -16,6 +17,10 @@ A small public lab of computational curiosities: compact programs that turn simp
 ### Logistic bifurcation poster
 
 ![Logistic bifurcation poster](art/logistic-bifurcation.svg)
+
+### Barnsley fern poster
+
+![Barnsley fern poster](art/barnsley-fern.svg)
 
 ## Why this repo exists
 
