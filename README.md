@@ -2,17 +2,18 @@
 
 Small code experiments that earn their keep.
 
-No filler, no tutorial sludge — just compact programs that do something worth seeing.
+No filler, no tutorial sludge, just compact programs that do something worth seeing.
 
 ## Included now
 
-- `python/logistic_ascii.py` — logistic-map explorer with ASCII plots and summary statistics
-- `python/logistic_bifurcation_svg.py` — SVG generator for a bifurcation poster of the logistic map
-- `c/rule30.c` — Rule 30 cellular automaton renderer in plain C
-- `cpp/mandelbrot_ascii.cpp` — Mandelbrot set rendered as ASCII in modern C++
-- `cpp/barnsley_fern_svg.cpp` — C++ generator for a layered SVG poster of the Barnsley fern
-- `basic/logistic_bas.bas` — a tiny BASIC logistic-map table printer
-- `logo/tree.logo` — a recursive tree sketch in LOGO
+- `python/logistic_ascii.py`: logistic-map explorer with ASCII plots and summary statistics
+- `python/logistic_bifurcation_svg.py`: SVG generator for a bifurcation poster of the logistic map
+- `c/rule30.c`: Rule 30 cellular automaton renderer in plain C
+- `c/phyllotaxis_svg.c`: C generator for a sunflower-style phyllotaxis poster from the golden angle
+- `cpp/mandelbrot_ascii.cpp`: Mandelbrot set rendered as ASCII in modern C++
+- `cpp/barnsley_fern_svg.cpp`: C++ generator for a layered SVG poster of the Barnsley fern
+- `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
+- `logo/tree.logo`: a recursive tree sketch in LOGO
 
 ## Visuals
 
@@ -23,6 +24,10 @@ No filler, no tutorial sludge — just compact programs that do something worth 
 ### Barnsley fern poster
 
 ![Barnsley fern poster](art/barnsley-fern.svg)
+
+### Phyllotaxis sunflower poster
+
+![Phyllotaxis sunflower poster](art/phyllotaxis-sunflower.svg)
 
 ## Why this repo exists
 
@@ -50,6 +55,9 @@ python3 python/logistic_ascii.py --r-min 3.5 --r-max 4.0 --rows 20 --cols 80
 ```bash
 cc -O2 -std=c11 c/rule30.c -o /tmp/rule30
 /tmp/rule30 61 24
+
+cc -O2 -std=c11 c/phyllotaxis_svg.c -lm -o /tmp/phyllotaxis_svg
+/tmp/phyllotaxis_svg art/phyllotaxis-sunflower.svg 1800
 ```
 
 ### C++
