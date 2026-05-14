@@ -4,8 +4,19 @@
 #include <string>
 
 int main(int argc, char** argv) {
+    if (argc > 1 && std::string(argv[1]) == "--help") {
+        std::cout << "usage: " << argv[0] << " [width] [height]\n";
+        std::cout << "render the Mandelbrot set as ASCII\n";
+        return 0;
+    }
+
     const int width = argc > 1 ? std::atoi(argv[1]) : 100;
     const int height = argc > 2 ? std::atoi(argv[2]) : 36;
+    if (width < 2 || height < 2) {
+        std::cerr << "width and height must both be at least 2\n";
+        return 1;
+    }
+
     const std::string palette = " .,:;ox%#@";
 
     for (int y = 0; y < height; ++y) {

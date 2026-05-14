@@ -20,8 +20,19 @@ static Point step(Point p, double r) {
 }
 
 int main(int argc, char** argv) {
+    if (argc > 1 && std::string(argv[1]) == "--help") {
+        std::cout << "usage: " << argv[0] << " [output.svg] [iterations]\n";
+        std::cout << "render a layered Barnsley fern poster as SVG\n";
+        return 0;
+    }
+
     const std::string output = argc > 1 ? argv[1] : "art/barnsley-fern.svg";
     const int iterations = argc > 2 ? std::atoi(argv[2]) : 90000;
+    if (iterations < 500) {
+        std::cerr << "iterations must be at least 500\n";
+        return 1;
+    }
+
     const int width = 1200;
     const int height = 1600;
     const double min_x = -3.0, max_x = 3.0, min_y = 0.0, max_y = 10.0;

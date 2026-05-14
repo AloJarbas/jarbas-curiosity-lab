@@ -12,6 +12,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `c/phyllotaxis_svg.c`: C generator for a sunflower-style phyllotaxis poster from the golden angle
 - `cpp/mandelbrot_ascii.cpp`: Mandelbrot set rendered as ASCII in modern C++
 - `cpp/barnsley_fern_svg.cpp`: C++ generator for a layered SVG poster of the Barnsley fern
+- `cpp/barnsley_fern_growth_svg.cpp`: C++ growth-study renderer showing how the same fern attractor fills in across six iteration budgets
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
 - `logo/tree.logo`: a recursive tree sketch in LOGO
 
@@ -24,6 +25,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 ### Barnsley fern poster
 
 ![Barnsley fern poster](art/barnsley-fern.svg)
+
+### Barnsley fern growth study
+
+![Barnsley fern growth study](art/barnsley-fern-growth-stages.svg)
 
 ### Phyllotaxis sunflower poster
 
@@ -65,6 +70,12 @@ cc -O2 -std=c11 c/phyllotaxis_svg.c -lm -o /tmp/phyllotaxis_svg
 ```bash
 c++ -O2 -std=c++17 cpp/mandelbrot_ascii.cpp -o /tmp/mandelbrot_ascii
 /tmp/mandelbrot_ascii 100 36
+
+c++ -O2 -std=c++17 cpp/barnsley_fern_svg.cpp -o /tmp/barnsley_fern_svg
+/tmp/barnsley_fern_svg art/barnsley-fern.svg 90000
+
+c++ -O2 -std=c++17 cpp/barnsley_fern_growth_svg.cpp -o /tmp/barnsley_fern_growth_svg
+/tmp/barnsley_fern_growth_svg art/barnsley-fern-growth-stages.svg
 ```
 
 ## Notes
@@ -72,6 +83,7 @@ c++ -O2 -std=c++17 cpp/mandelbrot_ascii.cpp -o /tmp/mandelbrot_ascii
 The Python, C, and C++ pieces were exercised locally.
 
 The SVG posters are generated directly by code in this repo.
+The growth-study panel is there on purpose: it turns the fern from a one-off pretty result into a tiny parameter-sweep experiment.
 
 The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
 
