@@ -14,6 +14,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `notebooks/phyllotaxis-angle-comparison.ipynb`: companion notebook explaining the Vogel model, the golden angle, spoke formation under rational turns, and a simple evenness metric
 - `cpp/mandelbrot_ascii.cpp`: Mandelbrot set rendered as ASCII in modern C++
 - `cpp/mandelbrot_zoom_svg.cpp`: Mandelbrot zoom triptych renderer in modern C++, with three scales and panel statistics
+- `cpp/mandelbrot_boundary_density_svg.cpp`: Mandelbrot boundary-density card in modern C++, pairing the same three views with slow-escape histograms and a CSV sidecar
 - `cpp/barnsley_fern_svg.cpp`: C++ generator for a layered SVG poster of the Barnsley fern
 - `cpp/barnsley_fern_growth_svg.cpp`: C++ growth-study renderer showing how the same fern attractor fills in across six iteration budgets
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
@@ -36,6 +37,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 ### Mandelbrot zoom triptych
 
 ![Mandelbrot zoom triptych](art/mandelbrot-zoom-triptych.svg)
+
+### Mandelbrot boundary-density card
+
+![Mandelbrot boundary-density card](art/mandelbrot-boundary-density.png)
 
 ### Phyllotaxis sunflower poster
 
@@ -92,6 +97,9 @@ c++ -O2 -std=c++17 cpp/mandelbrot_ascii.cpp -o /tmp/mandelbrot_ascii
 c++ -O2 -std=c++17 cpp/mandelbrot_zoom_svg.cpp -o /tmp/mandelbrot_zoom_svg
 /tmp/mandelbrot_zoom_svg art/mandelbrot-zoom-triptych.svg
 
+c++ -O2 -std=c++17 cpp/mandelbrot_boundary_density_svg.cpp -o /tmp/mandelbrot_boundary_density_svg
+/tmp/mandelbrot_boundary_density_svg art/mandelbrot-boundary-density.svg art/mandelbrot-boundary-density.csv
+
 c++ -O2 -std=c++17 cpp/barnsley_fern_svg.cpp -o /tmp/barnsley_fern_svg
 /tmp/barnsley_fern_svg art/barnsley-fern.svg 90000
 
@@ -107,7 +115,8 @@ The SVG posters are generated directly by code in this repo.
 The growth-study panel is there on purpose: it turns the fern from a one-off pretty result into a tiny parameter-sweep experiment.
 The phyllotaxis comparison card is there for the same reason: it makes the golden-angle choice visible by putting it next to nearby rational turns that collapse into spoke families.
 The Mandelbrot triptych belongs in the same category: the full-set silhouette is not enough, so the artifact moves inward and makes the boundary carry the piece instead of stopping at ASCII nostalgia.
-The companion notebook deepens that artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
+The new boundary-density card pushes that lane one step further: it keeps the same three views but asks where the escaping mass lives, so the slow-escape tail becomes visible instead of hiding inside one average iteration count.
+The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 
 The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
 
