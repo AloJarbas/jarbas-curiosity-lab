@@ -17,6 +17,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `cpp/mandelbrot_boundary_density_svg.cpp`: Mandelbrot boundary-density card in modern C++, pairing the same three views with slow-escape histograms and a CSV sidecar
 - `cpp/barnsley_fern_svg.cpp`: C++ generator for a layered SVG poster of the Barnsley fern
 - `cpp/barnsley_fern_growth_svg.cpp`: C++ growth-study renderer showing how the same fern attractor fills in across six iteration budgets
+- `cpp/barnsley_fern_frame_strip.cpp`: C++ timeline renderer turning one Barnsley orbit into an eight-frame strip with a coarse occupancy curve and CSV sidecar
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
 - `logo/tree.logo`: a recursive tree sketch in LOGO
 
@@ -33,6 +34,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 ### Barnsley fern growth study
 
 ![Barnsley fern growth study](art/barnsley-fern-growth-stages.svg)
+
+### Barnsley fern frame strip
+
+![Barnsley fern frame strip](art/barnsley-fern-frame-strip.png)
 
 ### Mandelbrot zoom triptych
 
@@ -105,6 +110,9 @@ c++ -O2 -std=c++17 cpp/barnsley_fern_svg.cpp -o /tmp/barnsley_fern_svg
 
 c++ -O2 -std=c++17 cpp/barnsley_fern_growth_svg.cpp -o /tmp/barnsley_fern_growth_svg
 /tmp/barnsley_fern_growth_svg art/barnsley-fern-growth-stages.svg
+
+c++ -O2 -std=c++17 cpp/barnsley_fern_frame_strip.cpp -o /tmp/barnsley_fern_frame_strip
+/tmp/barnsley_fern_frame_strip art/barnsley-fern-frame-strip.svg art/barnsley-fern-frame-strip.csv
 ```
 
 ## Notes
@@ -116,6 +124,7 @@ The growth-study panel is there on purpose: it turns the fern from a one-off pre
 The phyllotaxis comparison card is there for the same reason: it makes the golden-angle choice visible by putting it next to nearby rational turns that collapse into spoke families.
 The Mandelbrot triptych belongs in the same category: the full-set silhouette is not enough, so the artifact moves inward and makes the boundary carry the piece instead of stopping at ASCII nostalgia.
 The new boundary-density card pushes that lane one step further: it keeps the same three views but asks where the escaping mass lives, so the slow-escape tail becomes visible instead of hiding inside one average iteration count.
+The new Barnsley frame strip does the same kind of upgrade for the fern lane: instead of one finished attractor or a few isolated checkpoints, it treats the same random orbit as a timeline and pairs the frames with a coarse occupancy curve so you can see when the fern becomes legible and when the upper canopy starts claiming real area.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 
 The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
