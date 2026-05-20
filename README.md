@@ -15,6 +15,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `cpp/mandelbrot_ascii.cpp`: Mandelbrot set rendered as ASCII in modern C++
 - `cpp/mandelbrot_zoom_svg.cpp`: Mandelbrot zoom triptych renderer in modern C++, with three scales and panel statistics
 - `cpp/mandelbrot_boundary_density_svg.cpp`: Mandelbrot boundary-density card in modern C++, pairing the same three views with slow-escape histograms and a CSV sidecar
+- `notebooks/mandelbrot_boundary_density.ipynb`: companion notebook that reads the boundary-density CSV, compares the three views, and keeps the histogram story honest about scope and caveats
 - `cpp/barnsley_fern_svg.cpp`: C++ generator for a layered SVG poster of the Barnsley fern
 - `cpp/barnsley_fern_growth_svg.cpp`: C++ growth-study renderer showing how the same fern attractor fills in across six iteration budgets
 - `cpp/barnsley_fern_frame_strip.cpp`: C++ timeline renderer turning one Barnsley orbit into an eight-frame strip with a coarse occupancy curve and CSV sidecar
@@ -124,6 +125,7 @@ The growth-study panel is there on purpose: it turns the fern from a one-off pre
 The phyllotaxis comparison card is there for the same reason: it makes the golden-angle choice visible by putting it next to nearby rational turns that collapse into spoke families.
 The Mandelbrot triptych belongs in the same category: the full-set silhouette is not enough, so the artifact moves inward and makes the boundary carry the piece instead of stopping at ASCII nostalgia.
 The new boundary-density card pushes that lane one step further: it keeps the same three views but asks where the escaping mass lives, so the slow-escape tail becomes visible instead of hiding inside one average iteration count.
+The new Mandelbrot boundary-density notebook slows that artifact down the right way: it reads the CSV sidecar, compares the whole-set, Seahorse Valley, and mini-brot crops directly, and keeps the result scoped to sampled escape behavior instead of pretending the histogram proved something bigger than it did.
 The new Barnsley frame strip does the same kind of upgrade for the fern lane: instead of one finished attractor or a few isolated checkpoints, it treats the same random orbit as a timeline and pairs the frames with a coarse occupancy curve so you can see when the fern becomes legible and when the upper canopy starts claiming real area.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 
