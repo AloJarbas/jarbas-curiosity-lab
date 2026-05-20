@@ -19,6 +19,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `cpp/barnsley_fern_svg.cpp`: C++ generator for a layered SVG poster of the Barnsley fern
 - `cpp/barnsley_fern_growth_svg.cpp`: C++ growth-study renderer showing how the same fern attractor fills in across six iteration budgets
 - `cpp/barnsley_fern_frame_strip.cpp`: C++ timeline renderer turning one Barnsley orbit into an eight-frame strip with a coarse occupancy curve and CSV sidecar
+- `cpp/barnsley_fern_first_hit_map.cpp`: C++ first-hit renderer that colors a coarse fern grid by the iteration that first claimed each cell, plus a CSV sidecar for the arrival-time field
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
 - `logo/tree.logo`: a recursive tree sketch in LOGO
 
@@ -114,6 +115,9 @@ c++ -O2 -std=c++17 cpp/barnsley_fern_growth_svg.cpp -o /tmp/barnsley_fern_growth
 
 c++ -O2 -std=c++17 cpp/barnsley_fern_frame_strip.cpp -o /tmp/barnsley_fern_frame_strip
 /tmp/barnsley_fern_frame_strip art/barnsley-fern-frame-strip.svg art/barnsley-fern-frame-strip.csv
+
+c++ -O2 -std=c++17 cpp/barnsley_fern_first_hit_map.cpp -o /tmp/barnsley_fern_first_hit_map
+/tmp/barnsley_fern_first_hit_map art/barnsley-fern-first-hit-map.svg art/barnsley-fern-first-hit-map.csv
 ```
 
 ## Notes
@@ -127,6 +131,7 @@ The Mandelbrot triptych belongs in the same category: the full-set silhouette is
 The new boundary-density card pushes that lane one step further: it keeps the same three views but asks where the escaping mass lives, so the slow-escape tail becomes visible instead of hiding inside one average iteration count.
 The new Mandelbrot boundary-density notebook slows that artifact down the right way: it reads the CSV sidecar, compares the whole-set, Seahorse Valley, and mini-brot crops directly, and keeps the result scoped to sampled escape behavior instead of pretending the histogram proved something bigger than it did.
 The new Barnsley frame strip does the same kind of upgrade for the fern lane: instead of one finished attractor or a few isolated checkpoints, it treats the same random orbit as a timeline and pairs the frames with a coarse occupancy curve so you can see when the fern becomes legible and when the upper canopy starts claiming real area.
+The new Barnsley first-hit map asks the next tighter question: not just how full the fern is, but which coarse cells arrive early and which ones only get claimed much later. That turns the same orbit into an arrival-time field instead of another static silhouette.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 
 The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
