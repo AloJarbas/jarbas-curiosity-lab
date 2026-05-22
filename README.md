@@ -21,6 +21,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `cpp/barnsley_fern_growth_svg.cpp`: C++ growth-study renderer showing how the same fern attractor fills in across six iteration budgets
 - `cpp/barnsley_fern_frame_strip.cpp`: C++ timeline renderer turning one Barnsley orbit into an eight-frame strip with a coarse occupancy curve and CSV sidecar
 - `cpp/barnsley_fern_first_hit_map.cpp`: C++ first-hit renderer that colors a coarse fern grid by the iteration that first claimed each cell, plus a CSV sidecar for the arrival-time field
+- `cpp/barnsley_fern_affine_provenance.cpp`: C++ provenance card that colors each coarse fern cell by the affine rule that dominates its local hits, plus a CSV sidecar for per-cell rule shares and entropy
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
 - `logo/tree.logo`: a recursive tree sketch in LOGO
 
@@ -41,6 +42,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 ### Barnsley fern frame strip
 
 ![Barnsley fern frame strip](art/barnsley-fern-frame-strip.png)
+
+### Barnsley fern affine provenance
+
+![Barnsley fern affine provenance](art/barnsley-fern-affine-provenance.png)
 
 ### Mandelbrot zoom triptych
 
@@ -126,6 +131,9 @@ c++ -O2 -std=c++17 cpp/barnsley_fern_frame_strip.cpp -o /tmp/barnsley_fern_frame
 
 c++ -O2 -std=c++17 cpp/barnsley_fern_first_hit_map.cpp -o /tmp/barnsley_fern_first_hit_map
 /tmp/barnsley_fern_first_hit_map art/barnsley-fern-first-hit-map.svg art/barnsley-fern-first-hit-map.csv
+
+c++ -O2 -std=c++17 cpp/barnsley_fern_affine_provenance.cpp -o /tmp/barnsley_fern_affine_provenance
+/tmp/barnsley_fern_affine_provenance art/barnsley-fern-affine-provenance.svg art/barnsley-fern-affine-provenance.csv
 ```
 
 ## Notes
@@ -141,6 +149,7 @@ The new Mandelbrot boundary-density notebook slows that artifact down the right 
 The new Mandelbrot zoom-sequence card asks a different question than the triptych or the histogram card: if you keep one Seahorse Valley center fixed and only tighten the span, do the slow-escape pixels just rise smoothly with zoom? In this sequence, no. The escape fraction, mean dwell, and slow-tail share all move, but not in lockstep, which makes the zoom read like a small measurement pass instead of six prettier crops.
 The new Barnsley frame strip does the same kind of upgrade for the fern lane: instead of one finished attractor or a few isolated checkpoints, it treats the same random orbit as a timeline and pairs the frames with a coarse occupancy curve so you can see when the fern becomes legible and when the upper canopy starts claiming real area.
 The new Barnsley first-hit map asks the next tighter question: not just how full the fern is, but which coarse cells arrive early and which ones only get claimed much later. That turns the same orbit into an arrival-time field instead of another static silhouette.
+The new Barnsley affine-provenance card asks a different one: once the fern is already there, which affine rule actually owns each coarse patch? The answer is not uniform. The bulk-frond rule dominates most hits, but the stem and leaflet rules still claim distinct local neighborhoods instead of disappearing into one global average.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 
 The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
