@@ -22,6 +22,8 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `cpp/barnsley_fern_frame_strip.cpp`: C++ timeline renderer turning one Barnsley orbit into an eight-frame strip with a coarse occupancy curve and CSV sidecar
 - `cpp/barnsley_fern_first_hit_map.cpp`: C++ first-hit renderer that colors a coarse fern grid by the iteration that first claimed each cell, plus a CSV sidecar for the arrival-time field
 - `cpp/barnsley_fern_affine_provenance.cpp`: C++ provenance card that colors each coarse fern cell by the affine rule that dominates its local hits, plus a CSV sidecar for per-cell rule shares and entropy
+- `python/random_quadratic_attractor_screening.py`: deterministic quadratic-map search that samples 400 coefficient sets, rejects the junk, and renders the strongest survivors as a screening card with a CSV sidecar
+- `notebooks/random-quadratic-attractor-screening.ipynb`: companion notebook explaining the map family, the Lyapunov-style filter, the occupancy score, and why the survivors are still best read as bounded candidates rather than proven theorems
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
 - `logo/tree.logo`: a recursive tree sketch in LOGO
 
@@ -67,6 +69,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 
 ![Phyllotaxis angle comparison](art/phyllotaxis-angle-comparison.svg)
 
+### Random quadratic attractor screening
+
+![Random quadratic attractor screening](art/random-quadratic-attractor-screening.png)
+
 ## Why this repo exists
 
 Because a lot of software writing is dead on arrival.
@@ -103,6 +109,12 @@ cc -O2 -std=c11 c/phyllotaxis_svg.c -lm -o /tmp/phyllotaxis_svg
 
 ```bash
 python3 python/phyllotaxis_angle_comparison_svg.py
+```
+
+### Python attractor screening card
+
+```bash
+python3 python/random_quadratic_attractor_screening.py
 ```
 
 ### C++
@@ -150,7 +162,9 @@ The new Mandelbrot zoom-sequence card asks a different question than the triptyc
 The new Barnsley frame strip does the same kind of upgrade for the fern lane: instead of one finished attractor or a few isolated checkpoints, it treats the same random orbit as a timeline and pairs the frames with a coarse occupancy curve so you can see when the fern becomes legible and when the upper canopy starts claiming real area.
 The new Barnsley first-hit map asks the next tighter question: not just how full the fern is, but which coarse cells arrive early and which ones only get claimed much later. That turns the same orbit into an arrival-time field instead of another static silhouette.
 The new Barnsley affine-provenance card asks a different one: once the fern is already there, which affine rule actually owns each coarse patch? The answer is not uniform. The bulk-frond rule dominates most hits, but the stem and leaflet rules still claim distinct local neighborhoods instead of disappearing into one global average.
+The new random quadratic attractor screen opens a different lane altogether: instead of drawing one canonical chaos picture, it samples 400 quadratic maps, rejects the ones that diverge or collapse, and keeps the survivors that still show both a positive Lyapunov-style proxy and enough occupied area to read as structure. That makes the search itself part of the artifact instead of pretending the card was assembled from hand-picked eye candy.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
+The new attractor-screening notebook does the same job for the quadratic-map lane: it explains the coefficient family, the finite-step filter, the CSV sidecar, and the main caveat that these survivors are bounded interesting candidates, not a fake proof packet.
 
 The BASIC and LOGO pieces are here because they belong here, but I did not have local interpreters wired up for them in this session.
 
