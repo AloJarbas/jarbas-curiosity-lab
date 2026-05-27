@@ -22,6 +22,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `cpp/barnsley_fern_frame_strip.cpp`: C++ timeline renderer turning one Barnsley orbit into an eight-frame strip with a coarse occupancy curve and CSV sidecar
 - `cpp/barnsley_fern_first_hit_map.cpp`: C++ first-hit renderer that colors a coarse fern grid by the iteration that first claimed each cell, plus a CSV sidecar for the arrival-time field
 - `cpp/barnsley_fern_affine_provenance.cpp`: C++ provenance card that colors each coarse fern cell by the affine rule that dominates its local hits, plus a CSV sidecar for per-cell rule shares and entropy
+- `cpp/barnsley_fern_rule_entropy.cpp`: C++ entropy card that colors each coarse fern cell by how mixed its local affine-rule ownership stays, plus a CSV sidecar for per-cell entropy and rule shares
 - `python/random_quadratic_attractor_screening.py`: deterministic quadratic-map search that samples 400 coefficient sets, rejects the junk, and renders the strongest survivors as a screening card with a CSV sidecar
 - `notebooks/random-quadratic-attractor-screening.ipynb`: companion notebook explaining the map family, the Lyapunov-style filter, the occupancy score, and why the survivors are still best read as bounded candidates rather than proven theorems
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
@@ -48,6 +49,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 ### Barnsley fern affine provenance
 
 ![Barnsley fern affine provenance](art/barnsley-fern-affine-provenance.png)
+
+### Barnsley fern rule entropy
+
+![Barnsley fern rule entropy](art/barnsley-fern-rule-entropy.png)
 
 ### Mandelbrot zoom triptych
 
@@ -146,6 +151,9 @@ c++ -O2 -std=c++17 cpp/barnsley_fern_first_hit_map.cpp -o /tmp/barnsley_fern_fir
 
 c++ -O2 -std=c++17 cpp/barnsley_fern_affine_provenance.cpp -o /tmp/barnsley_fern_affine_provenance
 /tmp/barnsley_fern_affine_provenance art/barnsley-fern-affine-provenance.svg art/barnsley-fern-affine-provenance.csv
+
+c++ -O2 -std=c++17 cpp/barnsley_fern_rule_entropy.cpp -o /tmp/barnsley_fern_rule_entropy
+/tmp/barnsley_fern_rule_entropy art/barnsley-fern-rule-entropy.svg art/barnsley-fern-rule-entropy.csv
 ```
 
 ## Notes
@@ -162,6 +170,7 @@ The new Mandelbrot zoom-sequence card asks a different question than the triptyc
 The new Barnsley frame strip does the same kind of upgrade for the fern lane: instead of one finished attractor or a few isolated checkpoints, it treats the same random orbit as a timeline and pairs the frames with a coarse occupancy curve so you can see when the fern becomes legible and when the upper canopy starts claiming real area.
 The new Barnsley first-hit map asks the next tighter question: not just how full the fern is, but which coarse cells arrive early and which ones only get claimed much later. That turns the same orbit into an arrival-time field instead of another static silhouette.
 The new Barnsley affine-provenance card asks a different one: once the fern is already there, which affine rule actually owns each coarse patch? The answer is not uniform. The bulk-frond rule dominates most hits, but the stem and leaflet rules still claim distinct local neighborhoods instead of disappearing into one global average.
+The new Barnsley rule-entropy card pushes that lane one step further: some cells are not just won by different rules, they stay structurally mixed. The stem line and emptiest background stay low-entropy, but the fern body and leaflet boundaries keep a much richer overlap pattern than a simple dominant-rule map suggests.
 The new random quadratic attractor screen opens a different lane altogether: instead of drawing one canonical chaos picture, it samples 400 quadratic maps, rejects the ones that diverge or collapse, and keeps the survivors that still show both a positive Lyapunov-style proxy and enough occupied area to read as structure. That makes the search itself part of the artifact instead of pretending the card was assembled from hand-picked eye candy.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 The new attractor-screening notebook does the same job for the quadratic-map lane: it explains the coefficient family, the finite-step filter, the CSV sidecar, and the main caveat that these survivors are bounded interesting candidates, not a fake proof packet.
