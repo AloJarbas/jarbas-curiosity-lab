@@ -27,6 +27,7 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 - `python/random_quadratic_attractor_screening.py`: deterministic quadratic-map search that samples 400 coefficient sets, rejects the junk, and renders the strongest survivors as a screening card with a CSV sidecar
 - `notebooks/random-quadratic-attractor-screening.ipynb`: companion notebook explaining the map family, the Lyapunov-style filter, the occupancy score, and why the survivors are still best read as bounded candidates rather than proven theorems
 - `c/rule30_damage_cone_svg.c`: plain-C Rule 30 sensitivity card that compares the usual one-cell seed against a nearby perturbed seed, renders the XOR damage cone, and writes a CSV sidecar with row-by-row change metrics
+- `python/rule30_left_right_asymmetry.py`: Rule 30 asymmetry audit that measures matched diagonals the same depth in from the left and right edges, then renders an SVG/PNG card, CSV sidecar, and companion notebook
 - `basic/logistic_bas.bas`: a tiny BASIC logistic-map table printer
 - `logo/tree.logo`: a recursive tree sketch in LOGO
 
@@ -63,6 +64,10 @@ No filler, no tutorial sludge, just compact programs that do something worth see
 ### Rule 30 damage cone
 
 ![Rule 30 damage cone](art/rule30-damage-cone.png)
+
+### Rule 30 left-right asymmetry
+
+![Rule 30 left-right asymmetry](art/rule30-left-right-asymmetry.png)
 
 ### Mandelbrot zoom triptych
 
@@ -132,6 +137,12 @@ python3 python/phyllotaxis_angle_comparison_svg.py
 python3 python/random_quadratic_attractor_screening.py
 ```
 
+### Python Rule 30 asymmetry audit
+
+```bash
+python3 python/rule30_left_right_asymmetry.py
+```
+
 ### C++
 
 ```bash
@@ -189,6 +200,7 @@ The new Barnsley affine-provenance card asks a different one: once the fern is a
 The new Barnsley rule-entropy card pushes that lane one step further: some cells are not just won by different rules, they stay structurally mixed. The stem line and emptiest background stay low-entropy, but the fern body and leaflet boundaries keep a much richer overlap pattern than a simple dominant-rule map suggests.
 The new Barnsley claim-wave card asks the next tighter growth question: not just when the fern looks readable, but which coarse cells are still genuinely new in each later interval. That turns the motion lane into a bounded novelty-front read. Early claims build the stem and bulk frond, the mean claim height climbs as the canopy fills in, and the late intervals mostly polish the outer leaflet lace instead of adding new bulk.
 The new Rule 30 damage-cone card does the same kind of upgrade for the old ASCII automaton: instead of only showing the familiar wedge, it asks what one tiny initial perturbation does to the later rows. In this bounded run, a nearby extra live cell does not stay local. The XOR difference opens into a broad cone, the changed share of each row keeps breathing instead of flattening into a calm band, and the damaged span eventually covers almost the whole width.
+The new Rule 30 asymmetry audit closes the next loophole. It stops treating the wedge as one uniform chaos picture and measures matched diagonals the same depth in from both edges. In this bounded pass, the left flank keeps exact short tail periods far deeper into the wedge, while the right flank keeps much higher finite-block entropy and bit-flip rates. That turns the old folklore sentence about Rule 30's left and right sides into a real measurement card instead of another dramatic screenshot.
 The new random quadratic attractor screen opens a different lane altogether: instead of drawing one canonical chaos picture, it samples 400 quadratic maps, rejects the ones that diverge or collapse, and keeps the survivors that still show both a positive Lyapunov-style proxy and enough occupied area to read as structure. That makes the search itself part of the artifact instead of pretending the card was assembled from hand-picked eye candy.
 The companion notebook deepens the phyllotaxis artifact instead of leaving it as a pretty poster: it walks through the model, the modular-arithmetic reason spokes appear, a simple sector-occupancy score, caveats, and a few next questions.
 The new attractor-screening notebook does the same job for the quadratic-map lane: it explains the coefficient family, the finite-step filter, the CSV sidecar, and the main caveat that these survivors are bounded interesting candidates, not a fake proof packet.
